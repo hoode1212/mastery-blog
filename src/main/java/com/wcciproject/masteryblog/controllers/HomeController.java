@@ -24,7 +24,8 @@ public class HomeController {
 	TagRepository tagRepo;
 	
 	@RequestMapping("/")
-	public String home() {
+	public String home(Model model) {
+		model.addAttribute("postsList", postRepo.findAll());
 		return "home";
 	}	
 	

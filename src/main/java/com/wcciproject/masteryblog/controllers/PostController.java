@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wcciproject.masteryblog.models.Author;
 import com.wcciproject.masteryblog.models.Genre;
+import com.wcciproject.masteryblog.models.Post;
 import com.wcciproject.masteryblog.models.Tag;
 import com.wcciproject.masteryblog.repositories.AuthorRepository;
 import com.wcciproject.masteryblog.repositories.GenreRepository;
@@ -30,14 +31,14 @@ public class PostController {
 	TagRepository tagRepo;
 
 	@GetMapping("/submit")
-	public String postForm(Model model) {
-		model.addAttribute("posts", postRepo.findAll());
+	public String postForm() {
 		return "submit";
 
 	}
 
 	@PostMapping("/submit")
-	public String postSubmit(Long id, String body, String date, Author author, Genre genre, Tag... tags) {
+	public String postSubmit(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
+		postRepo.save(new Post(body, date, title, author, genre, tags));
 		return "redirect:/";
 	}
 

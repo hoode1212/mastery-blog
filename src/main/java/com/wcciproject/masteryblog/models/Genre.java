@@ -17,6 +17,10 @@ public class Genre {
 	@OneToMany(mappedBy = "genre")
 	private Collection<Post> posts;
 	
+	public Genre(String genreType) {
+		this.genreType = genreType;
+	}
+
 	public Genre() {}
 
 	public Long getId() {

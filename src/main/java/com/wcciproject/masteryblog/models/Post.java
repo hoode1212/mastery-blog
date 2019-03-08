@@ -17,6 +17,7 @@ public class Post {
 	private Long id;
 	private String body;
 	private String date;
+	private String title;
 	@ManyToOne
 	private Author author;
 
@@ -28,13 +29,18 @@ public class Post {
 	
 	public Post () {}
 
-	public Post(Long id, String body, String date, Author author, Genre genre, Tag ...tags) {
+	public Post(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
 		
 		this.body = body;
 		this.date = date;
+		this.title = title;
 		this.author = author;
 		this.genre = genre;
 		this.tags = Arrays.asList(tags);
+	}
+
+	public String getTitle() {
+		return title;
 	}
 
 	public Long getId() {
@@ -45,8 +51,8 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", body=" + body + ", date=" + date + ", author=" + author + ", genre=" + genre
-				+ ", tags=" + tags + "]";
+		return "Post [id=" + id + ", body=" + body + ", date=" + date + ", title=" + title + ", author=" + author
+				+ ", genre=" + genre + ", tags=" + tags + "]";
 	}
 
 	public String getBody() {
