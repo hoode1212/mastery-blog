@@ -11,7 +11,7 @@ import com.wcciproject.masteryblog.repositories.PostRepository;
 import com.wcciproject.masteryblog.repositories.TagRepository;
 
 @Service
-public class Innitializer implements CommandLineRunner{
+public class Initializer implements CommandLineRunner{
 
 		@Resource
 		PostRepository postRepo;
@@ -25,7 +25,7 @@ public class Innitializer implements CommandLineRunner{
 
 		@Override
 		public void run(String... args) throws Exception {
-			// TODO Auto-generated method stub
+			
 			
 		}
 }

@@ -1,11 +1,10 @@
 package com.wcciproject.masteryblog.controllers;
 
 import javax.annotation.Resource;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wcciproject.masteryblog.repositories.AuthorRepository;
 import com.wcciproject.masteryblog.repositories.GenreRepository;
@@ -13,7 +12,12 @@ import com.wcciproject.masteryblog.repositories.PostRepository;
 import com.wcciproject.masteryblog.repositories.TagRepository;
 
 @Controller
-public class HomeController {
+
+public class AuthorController {
+	@Id
+	@GeneratedValue
+	private Long id;
+	
 	@Resource
 	AuthorRepository authorRepo;
 	@Resource
@@ -23,12 +27,6 @@ public class HomeController {
 	@Resource
 	TagRepository tagRepo;
 	
-	@RequestMapping("/")
-	public String home() {
-		return "home";
-	}	
-	
-	
-	
 	
 }
+
