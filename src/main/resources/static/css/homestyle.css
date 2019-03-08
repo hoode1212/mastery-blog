@@ -1,0 +1,15 @@
+body {
+  font: 20px/1.618 sans-serif;
+  background-color: #C0C0CB;
+}
+
+header {
+  background-color: blue;
+  border-color: black;
+  border-style: solid;
+  border-width: 10px;
+  width: 100%; 
+}
+
+@media(max-width: 950px){
+}
