@@ -18,6 +18,7 @@ public class AuthorController {
 	@GeneratedValue
 	private Long id;
 	
+	
 	@Resource
 	AuthorRepository authorRepo;
 	@Resource

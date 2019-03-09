@@ -30,9 +30,4 @@ public class HomeController {
 		model.addAttribute("postsList", postRepo.findAll());
 		return "home";
 	}	
-	
-	
-	
-	
-	
 }

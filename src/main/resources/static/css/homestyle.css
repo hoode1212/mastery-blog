@@ -44,20 +44,26 @@ header {
 
 
 
+
+
 /* Styling for the boxes */
 
 .white-box{
-  background-color: #F6F6F6;
-  
-  box-shadow: 0 0px 3px rgba(0,0,0, 0.1),0 1px 0 rgba(0,0,0,.01);
-  margin-bottom: 0.7rem;
-  padding: 2rem;
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0, 0.1),5px 5px 0px rgba(0,0,0,.01);
+  padding: .5rem;
 }
 
 .section-title{
-  color:#B90504;
+  color:black;
   font-size: 2rem;
   margin-bottom: 0.4rem;
+}
+
+.footer-box{
+  background-color: blue;
+  box-shadow: 5px 5px 10px rgba(0,0,0, 0.1),5px 5px 0px rgba(0,0,0,.01);
+  float: bottom;
 }
 
 .two-column{
@@ -71,13 +77,8 @@ header {
   font-size: 3rem;
 }
 
-.article-subheader{
-  margin-top: 1rem;
-  font-size: 1.5rem;
-}
-.sidebar .white-box{
-  padding-bottom: 1.3rem;
-}
+
+
 
 
 
@@ -97,18 +98,17 @@ header {
     display: none;
   }
   .three-column{
-    margin-top: 10rem;
     display: flex;
+    margin: 2rem;
   }
 
 }
 @media(min-width: 951px){
   .three-column{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: .3fr 1fr 3fr .3fr;
     grid-column-gap: 2rem;
     max-width: 1600px;
-    margin: 0 auto;
-    margin-top: 10rem;
+    margin: 2rem;
   }
 }
