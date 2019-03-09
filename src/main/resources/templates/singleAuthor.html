@@ -30,17 +30,16 @@
         
     <section id="center-column">
         <h1 class ="article-header">List Of Authors</h1>
-      <div class="column-reverse">
-            <article class="white-box">
-                    <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
-        </article>                  
-    <article class="white-box" >
-      <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/singleAuthor/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
-      </ul>
+      <div class="column-reverse">    
+    <article class="white-box">
+      <p class="article-header" th:text="${author.authorName}">Authors</p>
+      <div class= "list-of-posts">
+          <ul th:each= "post : ${author.posts}">
+              <li><a th:href="@{|/post/${post.id}|}" th:text="@{|/post/${post.title}|}"></a>
+            </li>
+          </ul>
+
+      </div>
     </article>
       </div>
     </section>

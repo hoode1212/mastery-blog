@@ -18,13 +18,12 @@ import com.wcciproject.masteryblog.repositories.PostRepository;
 import com.wcciproject.masteryblog.repositories.TagRepository;
 
 @Controller
-@RequestMapping
+@RequestMapping("/author")
 public class AuthorController {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	
+
 	@Resource
 	AuthorRepository authorRepo;
 	@Resource
@@ -33,28 +32,32 @@ public class AuthorController {
 	PostRepository postRepo;
 	@Resource
 	TagRepository tagRepo;
-	
-	@GetMapping("/author/{authorId}")
-	public String getAuthor(@PathVariable Long authorId, Model model) {
-		model.addAttribute("author", authorRepo.findById(authorId).get());
-	
-		return "/author/individualAuthor";
-	}
-	@PostMapping("/{id}")
-	@GetMapping("/")
-	public String getAllAuthors(Model model) {
-		model.addAttribute("authors", authorRepo.findAll());
-		return "authors/allAuthors";
-	}
-	
-	
-	
-	@PostMapping("/author/{authorId}")
-	public String addAuthor(@PathVariable Long authorId ,Author author
-			) {
-		Author review1 = authorRepo.findById(authorId).get();
-		authorRepo.save(new Author (authorId));
-		return "redirect:/authors/" + authorId;
-	}
-}
 
+	@RequestMapping("")
+	public String author(Model model) {
+		model.addAttribute("authorList", authorRepo.findAll());
+		return "/author";
+	}
+	
+	
+	@PostMapping("/submit")
+	public String authorSubmit(String authorName) {
+		authorRepo.save(new Author(authorName));
+		return "redirect:/author";
+		
+	}
+
+	@GetMapping("/{id}")
+	public String singleAuthor(@PathVariable Long id, Model model) {
+		model.addAttribute("author", authorRepo.findById(id).get());
+		model.addAttribute("posts", postRepo.findAll());
+		return "redirect:/singleAuthor";
+	}
+
+//	@PostMapping("/{id}")
+//	public String addAuthor(@PathVariable Long authorId, Author author) {
+//		Author review1 = authorRepo.findById(authorId).get();
+//		authorRepo.save(new Author(authorId));
+//		return "redirect:/authors/" + authorId;
+//	}
+}

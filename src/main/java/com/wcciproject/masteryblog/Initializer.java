@@ -32,5 +32,9 @@ public class Initializer implements CommandLineRunner{
 			Genre horror = genreRepo.save(new Genre("Horror"));
 			
 			Post post1 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text", "DATE 3/8/2019", "TITLE title of the post", bob, horror));
+			Author jim = authorRepo.save(new Author("Jim"));
+			Genre comedy = genreRepo.save(new Genre("Comedy"));
+			
+			Post post2 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text222", "DATE 3/8/2019", "TITLE title of the post", jim, comedy));
 		}
 }
