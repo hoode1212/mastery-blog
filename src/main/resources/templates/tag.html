@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/homestyle.css">
+    <link rel="stylesheet" href="https://use.typekit.net/onm0xcg.css">
+    <title>mastery-blog</title>
+</head>
+
+<body>
+    <header id="header">
+        <div id="top-header">
+            <h1 class="header-branding">You Blog Bro</h1>
+            <ul class="log-in-list">
+                <li class="log-in-list--item">Log In</button></li>
+                <li class="log-in-list--item">Sign Up</li>
+            </ul>
+        </div>
+        <!--Close top-header-->
+
+        <div id="navbar">
+            <ul class="nav-list">
+                <li class="nav-list--item"><a href="/">Home</a></li>
+                <li class="nav-list--item"><a href="/blog/bloglist">Blogs</a></li>
+                <li class="nav-list--item"><a href="/blog/submit">Submit Blog</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="three-column grid">
+            <section id="left-column" class="sidebar">
+                <h2 class="bold section-title">Popular Blogs</h2>
+                <div class="white-box">
+                    <ul th:each="type : ${categories}">
+                        <li><a th:href="@{|/singleAuthor/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
+                    </ul>
+                </div>
+            </section>
+            <!--Close left-column-->
+
+
+            <section id="center-column">
+                <h2 class="bold section-title" th:text="${tag.tagName}"></h2>
+                <div class="column-reverse">
+                    <article class="white-box">
+                        <ul>
+                            <li th:each=" : ${tag.blogs}"><a th:href="@{|/singleAuthor/${authorName.id}|}"
+                                    th:text="${beerNow.beerName}"></a></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section id="right-column" class="sidebar">
+                <h2 class="bold section-title">Stuff Right</h2>
+            </section>
+        </div>
+       
+
+        <footer><small>&copy; You Blog Bro</small></footer>
+    </main>
+</body>
+
+</html>
