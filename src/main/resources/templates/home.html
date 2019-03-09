@@ -13,35 +13,45 @@
       <h1 class="header-text">Blog Page Title</h1>
     </div>
   <div id="navbar">
-    <!-- This will link us to the submit.html page -->
   <a class="header-text" id="nav-link" href="/submit">Submit Review</a>
-  
   </div>
   </header>
   <main>
+    <div class="three-column">
+      <section id="left-column" class="sidebar">
+        <h2 class="bold section-title">Some Stuff</h2>
+        <div class="white-box">
+          <p>placeholder text</p?
+        </div>
+      </section>
+        <!--Close left-column-->
+        
     <section id="center-column">
       <div class="column-reverse">
-        <!-- This gives us access to all posts -->
-    <article class="post-box" th:each="post : ${postsList}"> 
-      
-      <!-- his populates the post TITLE -->
-      <h2 class="article-header" th:text="${post.Title}">This populates the post TITLE</h2>
-      
-      <!-- This populates the author -->
+    <article class="post-box" th:each="post : ${postsList}">
+      <h2 class="article-header" th:text="${post.Title}">Title of Posts</h2>
+       <div class="two-column grid">
+              <div class="grid--left">
                 <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
-                
-                <!-- This populates the genre -->
                   <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
-                  
-                  <!-- This populates the post body or text -->
-    <p th:text="post.body">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p> 
-              <!-- This lets us click into the post -->
+    <p th:text="post.body">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
                 <a class="article-subheader" th:href="@{|post/${post.id}|}">Read Full Post</a>
-                
 
     </article>
-  </div>
     </section>
+      <!--Close center-column-->
+      
+      <section id="right-column" class="sidebar">
+        <h2 class="bold section-title">Our Sponsors</h2>
+        <div class="white-box">
+          <figure class="advertisement"><img src="/images/beer-ad.png"></figure>
+          <small>Advertisement</small>
+        </div>
+      </section>
+    </div>
+    <!--Close three-column-grid-->
+      
+      </div>
   </main>
 </body>
 </html>
