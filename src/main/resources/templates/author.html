@@ -38,8 +38,8 @@
                             </form>
         </article>                  
     <article class="white-box" >
-      <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/singleAuthor/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
+          <ul th:each="author : ${authorList}">
+          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
       </ul>
     </article>
       </div>

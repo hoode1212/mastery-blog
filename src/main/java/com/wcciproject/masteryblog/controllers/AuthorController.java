@@ -51,7 +51,7 @@ public class AuthorController {
 	public String singleAuthor(@PathVariable Long id, Model model) {
 		model.addAttribute("author", authorRepo.findById(id).get());
 		model.addAttribute("posts", postRepo.findAll());
-		return "redirect:/singleAuthor";
+		return "singleAuthor";
 	}
 
 //	@PostMapping("/{id}")
