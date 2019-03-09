@@ -23,11 +23,14 @@ public class HomeController {
 	@Resource
 	TagRepository tagRepo;
 	
+	
+	//This will let us populate the posts into the home page
 	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("postsList", postRepo.findAll());
 		return "home";
 	}	
+	
 	
 	
 	
