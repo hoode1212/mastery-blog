@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Review</title>
+	<link rel="stylesheet" type="/homestyle/css" >
+</head>
+<div class="background">
+
+	<body>
+		<header class="grid-header">
+			<figure >
+				<a href="/"><img id= alt="Blog Party"></a>
+			</figure>
+			<div class="grid-header__parkname">
+				<h1 th:text="${review.park.parkName}">Author Name Here...</h1>
+			</div>
+		</header>
+		<div class="container__body">
+
+			<div class="container__title">
+				<h2>
+					<span th:text="${Blog.title}">Blog Title</span>
+				</h2>
+			</div>
+
+			<!-- <div class="container__review">
+				<h3>
+					<span th:text="${blog.review}">Comments</span>
+				</h3>
+			</div> -->
+
+
+			<div class="container__old-comment-header">
+				<h3>Blog </h3>
+			</div>
+
+			<ul class="container__list-old-comments">
+				<li th:each="comment : ${review.comments}" class="border">
+					<h4 id="commentWrap" th:text="${comment.commentContent}">Default</a></h4>
+				</li>
+			</ul>
+
+			<div class="container__new-comment">
+				<form th:action="@{|/reviews/${review.id}|}" method="POST">
+					<div class="container__add-comment">
+						<input type="text" name="commentContent" placeholder="ADD A COMMENT" />
+					</div>
+					<div class="container__submit">
+						<button id="button" type="submit">SUBMIT COMMENT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	<div class="grid-footer">
+		<footer class="align-content">
+			<p> 2019</p>
+			</script>
+		</footer>
+	</div>
+</div>
+
+</html>
