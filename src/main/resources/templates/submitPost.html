@@ -13,7 +13,9 @@
       <h1 class="header-text">Blog Page Title</h1>
     </div>
   <div id="navbar">
-  <a class="header-text" id="nav-link" href="/submit">Submit Review</a>
+   <a class="header-text" id="nav-link" href="/">Home</a>
+  <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
+  <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
   </div>
   </header>
   <main>
@@ -32,22 +34,7 @@
         <h1 class ="article-header">List Of Authors</h1>
       <div class="column-reverse">
             <article class="white-box">
-                    <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
+      
         </article>                  
     <article class="white-box" >
           <ul th:each="author : ${authorList}">
