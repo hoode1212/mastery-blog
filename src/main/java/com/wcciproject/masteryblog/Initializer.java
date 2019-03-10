@@ -20,7 +20,7 @@ public class Initializer implements CommandLineRunner{
 		PostRepository postRepo;
 		@Resource
 		AuthorRepository authorRepo;
-		@Resource
+		@Resource  
 		GenreRepository genreRepo;
 		@Resource
 		TagRepository tagRepo;

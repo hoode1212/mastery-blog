@@ -35,7 +35,7 @@
       <p class="article-header" th:text="${author.authorName}">Authors</p>
       <div class= "list-of-posts">
           <ul th:each= "post : ${author.posts}">
-              <li><a th:href="@{|/post/${post.id}|}" th:text="@{|/post/${post.title}|}"></a>
+              <li><a th:href="@{|/post/${post.id}|}" th:text="@{|${post.title}|}"></a>
             </li>
           </ul>
 

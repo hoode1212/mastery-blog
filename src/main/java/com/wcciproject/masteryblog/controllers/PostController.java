@@ -30,16 +30,17 @@ public class PostController {
 	@Resource
 	TagRepository tagRepo;
 
-	@GetMapping("/submit")
+	@GetMapping("/submitPost")
 	public String postForm() {
-		return "submit";
+		return "submitPost";
 
 	}
 
-	@PostMapping("/submit")
+	@PostMapping("/submitPost")
 	public String postSubmit(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
 		postRepo.save(new Post(body, date, title, author, genre, tags));
-		return "redirect:/";
+		return "redirect:/home";
+	
 	}
 
 }

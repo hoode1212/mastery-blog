@@ -39,7 +39,7 @@
         </article>                  
     <article class="white-box" >
           <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
+          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}" th:text></a></li>
       </ul>
     </article>
       </div>
