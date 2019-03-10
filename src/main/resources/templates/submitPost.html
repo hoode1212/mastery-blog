@@ -29,25 +29,33 @@
         <!--Close left-column-->
         
     <section id="center-column">
-        <h1 class ="article-header">List Of Authors</h1>
+        <h1 class ="article-header">Submit Post</h1>
       <div class="column-reverse">
             <article class="white-box">
-                    <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
+                    <form action="/post/submitPost" method="POST">
+        <h3>Enter Title Here:<input class="title-input" type="text" placeholder="ex: Blog Name"
+                              name="title"></h3>
+                            </form>
+                             <form action="/post/submitPost" method="POST">
+        <h3>Enter Blog Here:<input class="body-input" type="text" placeholder="ex: Body"
+                              name="body"></h3>
+                            </form>
+                             <form action="/post/submitPost" method="POST">
+        <h3>Enter Date Here:<input class="date-input" type="text" placeholder="ex: Date"
+                              name="date"></h3>
+                            </form>
+                             <form action="/post/submitPost" method="POST">
+        <h3>Enter Author Here:<input class="authorName-input" type="text" placeholder="ex: Author Name"
                               name="authorName"></h3>
                             </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
+                            <form action="/post/submitPost" method="POST">
+        <h3>Enter Genre Here:<input class="genre-input" type="text" placeholder="ex: Genre"
+                              name="genreType"></h3>
                             </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
-                             <form action="/author/submit" method="POST">
-        <h3>Enter New Author Here:<input class="author-input" type="text" placeholder="ex: Author Name"
-                              name="authorName"></h3>
-                            </form>
+                            <form action="/post/submitPost" method="POST"> 
+        <h3>Enter Tags Here:<input class="tag-input" type="text" placeholder="ex: Tag"
+                              name="tagName"></h3>
+                            </form>                                       
         </article>                  
     <article class="white-box" >
           <ul th:each="author : ${authorList}">

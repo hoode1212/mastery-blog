@@ -6,6 +6,8 @@ import com.wcciproject.masteryblog.models.Author;
 
 public interface AuthorRepository extends CrudRepository<Author, Long> {
 
+	Author findByAuthorName(String authorName);
+
 	
 
 }

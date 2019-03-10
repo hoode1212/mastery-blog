@@ -74,5 +74,7 @@ public class Post {
 	public Collection<Tag> getTags() {
 		return tags;
 	}
-
+	public void addTagToTags(Tag tag) {
+		tags.add(tag);
+	}
 }

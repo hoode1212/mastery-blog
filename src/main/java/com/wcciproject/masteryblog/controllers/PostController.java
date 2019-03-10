@@ -37,10 +37,29 @@ public class PostController {
 	}
 
 	@PostMapping("/submitPost")
-	public String postSubmit(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
-		postRepo.save(new Post(body, date, title, author, genre, tags));
-		return "redirect:/home";
-	
+	public String postSubmit(String body, String date, String title, String authorName, String genreType,
+			String tagName, Author author, Genre genre, Tag tags) {
+		Genre genreToMake = genreRepo.findByGenreType(genreType);
+		if (genreToMake == null) {
+			genreToMake = genreRepo.save(new Genre(genreType));
+		}
+		genreToMake = genreRepo.save(genreToMake);
+
+		Author authorToMake = authorRepo.findByAuthorName(authorName);
+		if (authorToMake == null) {
+			authorToMake = authorRepo.save(new Author(authorName));
+		}
+		authorToMake = authorRepo.save(authorToMake);
+		Tag tagToMake = tagRepo.findByTagName(tagName);
+		if (tagToMake == null) {
+			tagToMake = tagRepo.save(new Tag(tagName));
+		}
+		tagToMake = tagRepo.save(tagToMake);
+
+		postRepo.save(new Post(body, date, title, authorToMake, genreToMake, tagToMake));
+
+		return "redirect:/";
+
 	}
 
 }

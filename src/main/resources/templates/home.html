@@ -28,28 +28,31 @@
       </section>
         <!--Close left-column-->
         
-    <section id="center-column">
+     <section id="center-column">
       <div class="column-reverse">
-    <article class="white-box" th:each="post : ${postsList}">
+     <article class="white-box" th:each="post : ${postsList}">
       <h2 class="article-header" th:text="${post.Title}">Title of Posts</h2>
        <div class="two-column grid">
               <div class="grid--left">
                 <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
                   <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
-    <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
+     <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
                 <a class="article-subheader" th:href="@{|post/${post.id}|}">Read Full Post</a>
-
-    </article>
-    </section>
-      <!--Close center-column-->
+                </div>
+              </div>
+     </article>
       </div>
+     </section>
+      <!--Close center-column-->
+      
          <!--Close three-column-grid-->
-       
+    </div>
+
         <div class="footer-box">
            <h2 class="bold section-title">Our Sponsors</h2>
         </div>
-      </section>
-    </div>
+      
+    
    
       
       
