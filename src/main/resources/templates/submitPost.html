@@ -47,17 +47,19 @@
                               name="date"></h3>
                             </form>
                              <form action="/post/submitPost" method="POST">
-        <select class="authorName-input"                            name="authorName"><option th:each="author : ${authorRepo}" th:value="${author.authorName}" th:text="|Enter Author Here: ${author.authorName}|">
-                  </option></select>
+        <select class="authorName-input" name="authorName"><option th:each="post : ${postList}" th:value="${post.author.authorName}" th:text="|${post.author.authorName}|">
+                  </option>
+                  <option>test</option>
+                </select>
                             </form>
                             <form action="/post/submitPost" method="POST">
         <select class="genre-input"
-                              name="genreType"><option th:each="genre : ${genreRepo}" th:value="${genre.genreType}" th:text="|Enter Genre Here: ${genre.genreType}|">
+                              name="genreType"><option th:each="post : ${postList}" th:value="${post.genre.genreType}" th:text="|${post.genre.genreType}|">
                   </option></select>
                             </form>
                             <form action="/post/submitPost" method="POST"> 
         <select class="tag-input"
-                              name="tagName"><option th:each="tag : ${tags}" th:value="${tag.tagName}" th:text="|Enter Tags Here: ${tag.tagName}|">
+                              name="tagName"><option th:each="post : ${postList}" th:value="${post.tags.tagName}" th:text="|${post.tags.tagName}|">
                   </option></select>
                             </form>                                       
                           </article>

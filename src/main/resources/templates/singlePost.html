@@ -35,14 +35,17 @@
     <section id="center-column">
         <h1 class ="article-header">Post</h1>
       <div class="column-reverse">    
-    <article class="white-box">
-                                          <div th:each="Title : ${post.title}">
-                                          <h2 class="article-header" th:text="${Title.title}">Title of Posts</h2></div>
+     <article class="white-box" th:each="post : ${postsList}">
+                                          <h2 class="article-header" th:text="${post.title}">Title of Posts</h2>
                 <div class="two-column grid">
-                  <div class="grid--left"><div th:each="Author: ${post.authors}">
-                               <h3 th:text="|Written by: ${Author.authorName}|">Written by: Bob</h3></div>
-                                 <div th:each="Genre: ${post.genre}"><h4 th:text="|Genre: ${Genre.genreType}|">Genre: Horror</h4></div>
+                  <div class="grid--left">
+                    <div>
+                               <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
+                               </div>
+                               <div>
+                                 <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
                                           <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
+                                          </article>
               </article>
       </div>
     </section>

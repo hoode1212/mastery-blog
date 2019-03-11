@@ -28,6 +28,9 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("postsList", postRepo.findAll());
+		model.addAttribute("authorList", authorRepo.findAll());
+		model.addAttribute("genreList", genreRepo.findAll());
+		model.addAttribute("tagList", tagRepo.findAll());
 		return "home";
 	}	
 }
