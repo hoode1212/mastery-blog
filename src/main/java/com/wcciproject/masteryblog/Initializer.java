@@ -1,6 +1,6 @@
 package com.wcciproject.masteryblog;
 
-import javax.annotation.Resource;
+import javax.annotation.Resource; 
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;

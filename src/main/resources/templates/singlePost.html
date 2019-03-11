@@ -13,9 +13,10 @@
       <h1 class="header-text">Blog Page Title</h1>
     </div>
   <div id="navbar">
-   <a class="header-text" id="nav-link" href="/">Home</a>
+  <a class="header-text" id="nav-link" href="/">Home</a>
   <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
   <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
+  <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
   </div>
   </header>
   <main>
@@ -31,16 +32,16 @@
         <!--Close left-column-->
         
     <section id="center-column">
-        <h1 class ="article-header">List Of Authors</h1>
-      <div class="column-reverse">
-            <article class="white-box">
-       
-        </article>                  
-    <article class="white-box" >
-          <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
-      </ul>
-    </article>
+        <h1 class ="article-header"th:text="post.title"></h1>
+      <div class="column-reverse">    
+    <article class="white-box">
+                <div class="two-column grid">
+                  <div class="grid--left">
+                    <h3 th:text="${post.title}">Title</h3>
+                               <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
+                                 <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
+                                          <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
+              </article>
       </div>
     </section>
       <!--Close center-column-->

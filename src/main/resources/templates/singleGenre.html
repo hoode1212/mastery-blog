@@ -13,9 +13,10 @@
       <h1 class="header-text">Blog Page Title</h1>
     </div>
   <div id="navbar">
-   <a class="header-text" id="nav-link" href="/">Home</a>
+  <a class="header-text" id="nav-link" href="/">Home</a>
   <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
   <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
+  <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
   </div>
   </header>
   <main>
@@ -31,15 +32,17 @@
         <!--Close left-column-->
         
     <section id="center-column">
-        <h1 class ="article-header">List Of Authors</h1>
-      <div class="column-reverse">
-            <article class="white-box">
-       
-        </article>                  
-    <article class="white-box" >
-          <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
-      </ul>
+        <h1 class ="article-header">List Of Genres</h1>
+      <div class="column-reverse">    
+    <article class="white-box">
+      <p class="article-header" th:text="${genre.genreType}">Genre</p>
+      <div class= "list-of-posts">
+          <ul th:each= "post : ${genre.posts}">
+              <li><a th:href="@{|/post/${post.id}|}" th:text="@{|${post.title}|}"></a>
+            </li>
+          </ul>
+
+      </div>
     </article>
       </div>
     </section>

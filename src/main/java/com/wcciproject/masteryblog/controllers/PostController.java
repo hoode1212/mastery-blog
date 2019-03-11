@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,6 +30,19 @@ public class PostController {
 	PostRepository postRepo;
 	@Resource
 	TagRepository tagRepo;
+	
+	@RequestMapping("")
+	public String author(Model model) {
+		model.addAttribute("postList", postRepo.findAll());
+		return "/post";
+	}
+	
+	@GetMapping("/{id}")
+	public String singlePost(@PathVariable Long id, Model model) {
+		model.addAttribute("postsList", postRepo.findAll());
+		return "singlePost";
+	}
+
 
 	@GetMapping("/submitPost")
 	public String postForm() {
@@ -38,7 +52,7 @@ public class PostController {
 
 	@PostMapping("/submitPost")
 	public String postSubmit(String body, String date, String title, String authorName, String genreType,
-			String tagName, Author author, Genre genre, Tag tags) {
+			String tagName, Tag tags) {
 		Genre genreToMake = genreRepo.findByGenreType(genreType);
 		if (genreToMake == null) {
 			genreToMake = genreRepo.save(new Genre(genreType));

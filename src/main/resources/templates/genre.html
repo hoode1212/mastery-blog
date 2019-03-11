@@ -16,6 +16,7 @@
    <a class="header-text" id="nav-link" href="/">Home</a>
   <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
   <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
+  <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
   </div>
   </header>
   <main>
@@ -31,14 +32,17 @@
         <!--Close left-column-->
         
     <section id="center-column">
-        <h1 class ="article-header">List Of Authors</h1>
+        <h1 class ="article-header">List Of Genres</h1>
       <div class="column-reverse">
             <article class="white-box">
-       
+                    <form action="/genre/submit" method="POST">
+        <h3>Enter New Genre Here:<input class="author-input" type="text" placeholder="ex: Genre"
+                              name="genreType"></h3>
+                            </form>
         </article>                  
     <article class="white-box" >
-          <ul th:each="author : ${authorList}">
-          <li><a th:href="@{|/author/${author.id}|}" th:text="@{|${author.authorName}|}"></a></li>
+          <ul th:each="genre : ${genreList}">
+          <li><a th:href="@{|/genre/${genre.id}|}" th:text="@{|${genre.genreType}|}"></a></li>
       </ul>
     </article>
       </div>

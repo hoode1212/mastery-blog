@@ -1,63 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/homestyle.css">
-  <title>Blog</title>
-</head>
-<body>
-  <header>
-    <div id="top-header">
-      <h1 class="header-text">Blog Page Title</h1>
-    </div>
-  <div id="navbar">
-  <a class="header-text" id="nav-link" href="/">Home</a>
-  <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
-  <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
-  </div>
-  </header>
-  <main>
-    <div class="three-column">
-      <section>
-      </section>
-      <section id="left-column" class="sidebar">
-        <h2 class="bold section-title">Some Stuff</h2>
-        <div class="white-box">
-          <p>placeholder text</p>
-        </div>
-      </section>
-        <!--Close left-column-->
-        
-     <section id="center-column">
-      <div class="column-reverse">
-     <article class="white-box" th:each="post : ${postsList}">
-      <h2 class="article-header" th:text="${post.Title}">Title of Posts</h2>
-       <div class="two-column grid">
-              <div class="grid--left">
-                <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
-                  <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
-     <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
-                <a class="article-subheader" th:href="@{|post/${post.id}|}">Read Full Post</a>
-                </div>
-              </div>
-     </article>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/homestyle.css">
+    <title>Blog</title>
+  </head>
+  <body>
+    <header>
+      <div id="top-header">
+        <h1 class="header-text">Blog Page Title</h1>
       </div>
-     </section>
-      <!--Close center-column-->
-      
-         <!--Close three-column-grid-->
+    <div id="navbar">
+    <a class="header-text" id="nav-link" href="/">Home</a>
+    <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
+    <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
+  <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
     </div>
+    </header>
+    <main>
+      <div class="three-column">
+        <section>
+        </section>
+          <section id="left-column" class="sidebar">
+                                             <h2 class="bold section-title">Some Stuff</h2>
+            <div class="white-box">
+                                            <p>placeholder text</p>
+            </div>
+          </section>
+          <!--Close left-column-->
+          
+          <section id="center-column">
+            <div class="column-reverse">
+              <article class="white-box" th:each="post : ${postsList}">
+                                          <h2 class="article-header" th:text="${post.Title}">Title of Posts</h2>
+                <div class="two-column grid">
+                  <div class="grid--left">
+                               <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
+                                 <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
+                                          <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
+                                     <a class="article-subheader" th:href="@{|post/${post.id}|}">Read Full Post</a>
+              </article>
 
-        <div class="footer-box">
-           <h2 class="bold section-title">Our Sponsors</h2>
-        </div>
-      
-    
-   
-      
-      
-  </main>
-</body>
-</html>
+          </section>
+        <!--Close center-column-->
+      </div>
+           <!--Close three-column-grid-->
+         
+          <div class="footer-box">
+             <h2 class="bold section-title">Our Sponsors</h2>
+          </div>
+        </section>
+      </div>
+     
+        
+        
+    </main>
+  </body>
+  </html>
