@@ -59,7 +59,7 @@
                             </form>
                             <form action="/post/submitPost" method="POST"> 
         <select class="tag-input"
-                              name="tagName"><option th:each="post : ${postList}" th:value="${post.tags.tagName}" th:text="|${post.tags.tagName}|">
+                              name="tagName"><option th:each="post : ${tagList}" th:value="${post.tagName}" th:text="|${post.tagName}|">
                   </option></select>
                             </form>                                       
                           </article>
