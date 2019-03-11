@@ -32,7 +32,7 @@ public class PostController {
 	TagRepository tagRepo;
 	
 	@RequestMapping("")
-	public String author(Model model) {
+	public String post(Model model) {
 		model.addAttribute("postList", postRepo.findAll());
 		return "/post";
 	}
