@@ -39,30 +39,28 @@
                <form action="/post/submitPost" method="POST">
         <h3>Enter Title Here:<input class="title-input" type="text" placeholder="ex: Blog Name"
                               name="title"></h3>
-                            </form>
-                             <form action="/post/submitPost" method="POST">
+                            
+                             
         <h3>Enter Blog Here:<input class="body-input" type="text" placeholder="ex: Body"
                               name="body"></h3>
-                            </form>
-                             <form action="/post/submitPost" method="POST">
+                            
         <h3>Enter Date Here:<input class="date-input" type="text" placeholder="ex: Date"
                               name="date"></h3>
-                            </form>
-                             <form action="/post/submitPost" method="POST">
-        <select class="authorName-input" name="authorName"><option th:each="author : ${authorList}" th:value="${author.authorName}" th:text="|${author.authorName}|">
+                            
+        <select class="authorName-input" name="authorName"><option th:each="post : ${postList}" th:value="${post.author.authorName}" th:text="|${post.author.authorName}|">
+
                   </option>
                   <option>test</option>
                 </select>
-                            </form>
-                            <form action="/post/submitPost" method="POST">
+                            
         <select class="genre-input"
                               name="genreType"><option th:each="post : ${postList}" th:value="${post.genre.genreType}" th:text="|${post.genre.genreType}|">
                   </option></select>
-                            </form>
-                            <form action="/post/submitPost" method="POST"> 
+                           
         <select class="tag-input"
                               name="tagName"><option th:each="post : ${tagList}" th:value="${post.tagName}" th:text="|${post.tagName}|">
                   </option></select>
+                  <button type="submit">submit</button>
                             </form>                                       
                           </article>
       </div>
