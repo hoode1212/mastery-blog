@@ -34,7 +34,7 @@
           <section id="center-column">
             <div class="column-reverse">
               <article class="white-box" th:each="post : ${postsList}">
-                                          <h2 class="article-header" th:text="${post.Title}">Title of Posts</h2>
+                                          <h2 class="article-header" th:text="${post.title}">Title of Posts</h2>
                 <div class="two-column grid">
                   <div class="grid--left">
                                <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
