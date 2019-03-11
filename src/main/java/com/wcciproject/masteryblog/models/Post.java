@@ -1,6 +1,7 @@
 package com.wcciproject.masteryblog.models;
 
 import java.util.Collection;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ public class Post {
 	@GeneratedValue
 	private Long id;
 	private String body;
+	private LocalDateTime time;
 	private String date;
 	private String title;
 	@ManyToOne
@@ -30,6 +32,7 @@ public class Post {
 
 	public Post(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
 		
+		this.time = LocalDateTime.now(); 
 		this.body = body;
 		this.date = date;
 		this.title = title;
@@ -37,6 +40,7 @@ public class Post {
 		this.genre = genre;
 		this.tags = Arrays.asList(tags);
 	}
+
 
 	public String getTitle() {
 		return title;
@@ -50,7 +54,7 @@ public class Post {
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", body=" + body + ", date=" + date + ", title=" + title + ", author=" + author
+		return "Post [id=" + id + ", time=" + time + " body=" + body + ", date=" + date + ", title=" + title + ", author=" + author
 				+ ", genre=" + genre + ", tags=" + tags + "]";
 	}
 
@@ -68,6 +72,10 @@ public class Post {
 
 	public Genre getGenre() {
 		return genre;
+	}
+	
+	public LocalDateTime getTime() {
+		return time;
 	}
 
 	public Collection<Tag> getTags() {
