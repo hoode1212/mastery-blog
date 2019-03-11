@@ -19,8 +19,8 @@ public class Post {
 	private LocalDateTime time;
 	private String date;
 	private String title;
-	@ManyToOne
-	private Author author;
+	@ManyToMany
+	private Collection<Author> author;
 
 	@ManyToOne
 	private Genre genre;
@@ -30,13 +30,13 @@ public class Post {
 	
 	public Post () {}
 
-	public Post(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
+	public Post(String body, String date, String title, Author author, Genre genre, Tag tags) {
 		
 		this.time = LocalDateTime.now(); 
 		this.body = body;
 		this.date = date;
 		this.title = title;
-		this.author = author;
+		this.author = Arrays.asList(author);
 		this.genre = genre;
 		this.tags = Arrays.asList(tags);
 	}
@@ -66,7 +66,7 @@ public class Post {
 		return date;
 	}
 
-	public Author getAuthor() {
+	public Collection<Author> getAuthor() {
 		return author;
 	}
 

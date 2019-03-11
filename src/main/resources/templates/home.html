@@ -38,8 +38,8 @@
                                           <h2 class="article-header" th:text="${post.title}">Title of Posts</h2>
                 <div class="two-column grid">
                   <div class="grid--left">
-                    <div>
-                               <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
+                    <div th:each="author : ${authorList}">
+                               <h3 th:text="|Written by: ${author.authorName}|">Written by: Bob</h3>
                                </div>
                                <div>
                                  <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>

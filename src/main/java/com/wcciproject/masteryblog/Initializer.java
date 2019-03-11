@@ -1,6 +1,6 @@
 package com.wcciproject.masteryblog;
 
-import javax.annotation.Resource; 
+import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.wcciproject.masteryblog.models.Author;
 import com.wcciproject.masteryblog.models.Genre;
 import com.wcciproject.masteryblog.models.Post;
+import com.wcciproject.masteryblog.models.Tag;
 import com.wcciproject.masteryblog.repositories.AuthorRepository;
 import com.wcciproject.masteryblog.repositories.GenreRepository;
 import com.wcciproject.masteryblog.repositories.PostRepository;
@@ -30,11 +31,12 @@ public class Initializer implements CommandLineRunner{
 		public void run(String... args) throws Exception {
 			Author bob = authorRepo.save(new Author("Bob"));
 			Genre horror = genreRepo.save(new Genre("Horror"));
+			Tag tag = tagRepo.save(new Tag("funny"));
 			
-			Post post1 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text", "DATE 3/8/2019", "TITLE title of the post", bob, horror));
+			Post post1 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text", "DATE 3/8/2019", "TITLE title of the post", bob, horror, tag));
 			Author jim = authorRepo.save(new Author("Jim"));
 			Genre comedy = genreRepo.save(new Genre("Comedy"));
 			
-			Post post2 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text222", "DATE 3/8/2019", "TITLE title of the post", jim, comedy));
+			Post post2 = postRepo.save(new Post("BODY, this is going to be filled with a bunch of text222", "DATE 3/8/2019", "TITLE title of the post", jim, comedy, tag));
 		}
 }

@@ -35,7 +35,10 @@ public class AuthorController {
 
 	@RequestMapping("")
 	public String author(Model model) {
+		model.addAttribute("postList", postRepo.findAll());
 		model.addAttribute("authorList", authorRepo.findAll());
+		model.addAttribute("genreList", genreRepo.findAll());
+		model.addAttribute("tagList", tagRepo.findAll());
 		return "/author";
 	}
 	
@@ -51,6 +54,9 @@ public class AuthorController {
 	public String singleAuthor(@PathVariable Long id, Model model) {
 		model.addAttribute("author", authorRepo.findById(id).get());
 		model.addAttribute("posts", postRepo.findAll());
+		model.addAttribute("authorList", authorRepo.findAll());
+		model.addAttribute("genreList", genreRepo.findAll());
+		model.addAttribute("tagList", tagRepo.findAll());
 		return "singleAuthor";
 	}
 

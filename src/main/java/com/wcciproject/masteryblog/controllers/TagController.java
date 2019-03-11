@@ -32,6 +32,9 @@ public class TagController {
 	@RequestMapping("")
 	public String tag(Model model) {
 		model.addAttribute("tagList", tagRepo.findAll());
+		model.addAttribute("postList", postRepo.findAll());
+		model.addAttribute("authorList", authorRepo.findAll());
+		model.addAttribute("genreList", genreRepo.findAll());
 		return "/tag";
 	}
 	
@@ -47,6 +50,9 @@ public class TagController {
 	public String singleTag(@PathVariable Long id, Model model) {
 		model.addAttribute("tag", tagRepo.findById(id).get());
 		model.addAttribute("posts", postRepo.findAll());
+		model.addAttribute("authorList", authorRepo.findAll());
+		model.addAttribute("genreList", genreRepo.findAll());
+		model.addAttribute("tagList", tagRepo.findAll());
 		return "singleTag";
 	}
 

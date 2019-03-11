@@ -49,7 +49,7 @@
                               name="date"></h3>
                             </form>
                              <form action="/post/submitPost" method="POST">
-        <select class="authorName-input" name="authorName"><option th:each="post : ${postList}" th:value="${post.author.authorName}" th:text="|${post.author.authorName}|">
+        <select class="authorName-input" name="authorName"><option th:each="author : ${authorList}" th:value="${author.authorName}" th:text="|${author.authorName}|">
                   </option>
                   <option>test</option>
                 </select>
