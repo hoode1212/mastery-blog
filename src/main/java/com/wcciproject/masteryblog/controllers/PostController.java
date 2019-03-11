@@ -22,57 +22,56 @@ import com.wcciproject.masteryblog.repositories.TagRepository;
 @RequestMapping("/post")
 public class PostController {
 
-	@Resource
-	AuthorRepository authorRepo;
-	@Resource
-	GenreRepository genreRepo;
-	@Resource
-	PostRepository postRepo;
-	@Resource
-	TagRepository tagRepo;
-	
-	@RequestMapping("")
-	public String post(Model model) {
-		model.addAttribute("postsList", postRepo.findAll());
-		model.addAttribute("authorList", authorRepo.findAll());
-		model.addAttribute("genreList", genreRepo.findAll());
-		model.addAttribute("tagList", tagRepo.findAll());
-		return "/post";
-	}
-	
-	@GetMapping("/{id}")
-	public String singlePost(@PathVariable Long id, Model model) {
-		model.addAttribute("postList", postRepo.findAll());
-		model.addAttribute("authorList", authorRepo.findAll());
-		model.addAttribute("genreList", genreRepo.findAll());
-		model.addAttribute("tagList", tagRepo.findAll());
-		return "singlePost";
-	}
+    @Resource
+    AuthorRepository authorRepo;
+    @Resource
+    GenreRepository genreRepo;
+    @Resource
+    PostRepository postRepo;
+    @Resource
+    TagRepository tagRepo;
+    
+    @RequestMapping("")
+    public String post(Model model) {
+        model.addAttribute("postsList", postRepo.findAll());
+        model.addAttribute("authorList", authorRepo.findAll());
+        model.addAttribute("genreList", genreRepo.findAll());
+        model.addAttribute("tagList", tagRepo.findAll());
+        return "/post";
+    }
+    
+    @GetMapping("/{id}")
+    public String singlePost(@PathVariable Long id, Model model) {
+        model.addAttribute("postList", postRepo.findAll());
+        model.addAttribute("authorList", authorRepo.findAll());
+        model.addAttribute("genreList", genreRepo.findAll());
+        model.addAttribute("tagList", tagRepo.findAll());
+        return "singlePost";
+    }
 
 
-	@GetMapping("/submitPost")
-	public String postForm(Model model) {
-		model.addAttribute("postList", postRepo.findAll());
-		model.addAttribute("authorList", authorRepo.findAll());
-		model.addAttribute("genreList", genreRepo.findAll());
-		model.addAttribute("tagList", tagRepo.findAll());
-		return "submitPost";
+    @GetMapping("/submitPost")
+    public String postForm(Model model) {
+        model.addAttribute("postList", postRepo.findAll());
+        model.addAttribute("genreType", genreRepo.findAll());
+        model.addAttribute("tagName", tagRepo.findAll());
+        return "submitPost";
 
-	}
+    }
 
-	@PostMapping("/submitPost")
-	public String postSubmit(String body, String date, String title, String authorName, String genreType,
-			String tagName) {
-		Genre genre = genreRepo.findByGenreType(genreType);
-		
-		Author author = authorRepo.findByAuthorName(authorName);
-		
-		Tag tags = tagRepo.findByTagName(tagName);
+    @PostMapping("/submitPost")
+    public String postSubmit(String body, String date, String title, String authorName, String genreType,
+            String tagName) {
+        Genre genre = genreRepo.findByGenreType(genreType);
+        
+        Author author = authorRepo.findByAuthorName(authorName);
+        
+        Tag tags = tagRepo.findByTagName(tagName);
 
-		postRepo.save(new Post(body, date, title, author, genre, tags));
+        postRepo.save(new Post(body, date, title, author, genre, tags));
 
-		return "redirect:/";
+        return "redirect:/";
 
-	}
+    }
 
 }

@@ -12,76 +12,76 @@ import java.util.Arrays;
 
 @Entity
 public class Post {
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String body;
-	private LocalDateTime time;
-	private String date;
-	private String title;
-	@ManyToMany
-	private Collection<Author> author;
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String body;
+    private LocalDateTime time;
+    private String date;
+    private String title;
+    @ManyToOne
+    private Author author;
 
-	@ManyToOne
-	private Genre genre;
+    @ManyToOne
+    private Genre genre;
 
-	@ManyToMany
-	private Collection<Tag> tags;
-	
-	public Post () {}
+    @ManyToMany
+    private Collection<Tag> tags;
+    
+    public Post () {}
 
-	public Post(String body, String date, String title, Author author, Genre genre, Tag tags) {
-		
-		this.time = LocalDateTime.now(); 
-		this.body = body;
-		this.date = date;
-		this.title = title;
-		this.author = Arrays.asList(author);
-		this.genre = genre;
-		this.tags = Arrays.asList(tags);
-	}
+    public Post(String body, String date, String title, Author author, Genre genre, Tag ...tags) {
+        
+        this.time = LocalDateTime.now();
+        this.body = body;
+        this.date = date;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.tags = Arrays.asList(tags);
+    }
 
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	
+    
 
-	@Override
-	public String toString() {
-		return "Post [time=" + time + "id=" + id + ", body=" + body + ", date=" + date + ", title=" + title + ", author=" + author
-				+ ", genre=" + genre + ", tags=" + tags + "]";
-	}
+    @Override
+    public String toString() {
+        return "Post [time=" + time + "id=" + id + ", body=" + body + ", date=" + date + ", title=" + title + ", author=" + author
+                + ", genre=" + genre + ", tags=" + tags + "]";
+    }
 
-	public String getBody() {
-		return body;
-	}
+    public String getBody() {
+        return body;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public String getDate() {
+        return date;
+    }
 
-	public Collection<Author> getAuthor() {
-		return author;
-	}
+    public Author getAuthor() {
+        return author;
+    }
 
-	public Genre getGenre() {
-		return genre;
-	}
-	
-	public LocalDateTime getTime() {
-		return time;
-	}
+    public Genre getGenre() {
+        return genre;
+    }
+    
+    public LocalDateTime getTime() {
+        return time;
+    }
 
-	public Collection<Tag> getTags() {
-		return tags;
-	}
-	public void addTagToTags(Tag tag) {
-		tags.add(tag);
-	}
+    public Collection<Tag> getTags() {
+        return tags;
+    }
+    public void addTagToTags(Tag tag) {
+        tags.add(tag);
+    }
 }

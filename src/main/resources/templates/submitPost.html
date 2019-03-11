@@ -1,78 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/homestyle.css">
-  <title>Blog</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="/css/homestyle.css">
+ <title>Blog</title>
 </head>
 <body>
-  <header>
-    <div id="top-header">
-      <h1 class="header-text">Blog Page Title</h1>
-    </div>
-  <div id="navbar">
-   <a class="header-text" id="nav-link" href="/">Home</a>
-    <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
-    <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
-  <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
-  <a class="header-text" id="nav-link" href="/tag"> View/Add Tags</a>
-  </div>
-  </header>
-  <main>
-    <div class="three-column">
-      <section>
-      </section>
-      <section id="left-column" class="sidebar">
-        <h2 class="bold section-title">Some Stuff</h2>
-        <div class="white-box">
-          <p>placeholder text</p>
-        </div>
-      </section>
-        <!--Close left-column-->
-        
-    <section id="center-column">
-        <h1 class ="article-header">Submit Post</h1>
-      <div class="column-reverse">
-            <article class="white-box">
-               <form action="/post/submitPost" method="POST">
-        <h3>Enter Title Here:<input class="title-input" type="text" placeholder="ex: Blog Name"
-                              name="title"></h3>
-                            
-                             
-        <h3>Enter Blog Here:<input class="body-input" type="text" placeholder="ex: Body"
-                              name="body"></h3>
-                            
-        <h3>Enter Date Here:<input class="date-input" type="text" placeholder="ex: Date"
-                              name="date"></h3>
-                            
-        <select class="authorName-input" name="authorName"><option th:each="post : ${postList}" th:value="${post.author.authorName}" th:text="|${post.author.authorName}|">
+ <header>
+   <div id="top-header">
+     <h1 class="header-text">Blog Page Title</h1>
+   </div>
+ <div id="navbar">
+  <a class="header-text" id="nav-link" href="/">Home</a>
+   <a class="header-text" id="nav-link" href="/post/submitPost">Submit Review</a>
+   <a class="header-text" id="nav-link" href="/author"> View/Add Authors</a>
+ <a class="header-text" id="nav-link" href="/genre"> View/Add Genres</a>
+ <a class="header-text" id="nav-link" href="/tag"> View/Add Tags</a>
+ </div>
+ </header>
+ <main>
+   <div class="three-column">
+     <section>
+     </section>
+     <section id="left-column" class="sidebar">
+       <h2 class="bold section-title">Some Stuff</h2>
+       <div class="white-box">
+         <p>placeholder text</p>
+       </div>
+     </section>
+       <!--Close left-column-->
 
-                  </option>
-                  <option>test</option>
-                </select>
-                            
-        <select class="genre-input"
-                              name="genreType"><option th:each="post : ${postList}" th:value="${post.genre.genreType}" th:text="|${post.genre.genreType}|">
-                  </option></select>
-                           
-        <select class="tag-input"
-                              name="tagName"><option th:each="post : ${tagList}" th:value="${post.tagName}" th:text="|${post.tagName}|">
-                  </option></select>
-                  <button type="submit">submit</button>
-                            </form>                                       
-                          </article>
-      </div>
-    </section>
-      <!--Close center-column-->
-      </div>
-         <!--Close three-column-grid-->
-       <section>
-        <div class="footer-box">
-           <h2 class="bold section-title">Our Sponsors</h2>
-        </div>
-      </section>     
-  </main>
+   <section id="center-column">
+       <h1 class ="article-header">Submit Post</h1>
+     <div class="column-reverse">
+           <article class="white-box">
+              <form action="/post/submitPost" method="POST">
+       <h3>Enter Title Here:<input class="title-input" type="text" placeholder="ex: Blog Name"
+                             name="title"></h3>
+
+
+       <h3>Enter Blog Here:<input class="body-input" type="text" placeholder="ex: Body"
+                             name="body"></h3>
+
+       <h3>Enter Date Here:<input class="date-input" type="text" placeholder="ex: Date"
+                             name="date"></h3>
+
+       <select class="authorName-input" name="authorName"><option th:each="post : ${postList}" th:value="${post.author.authorName}" th:text="|${post.author.authorName}|">
+                 </option>
+                 <option>test</option>
+               </select>
+
+       <select class="genre-input"
+                             name="genreType"><option th:each="post : ${postList}" th:value="${post.genre.genreType}" th:text="|${post.genre.genreType}|">
+                 </option></select>
+
+       <select class="tag-input"
+                             name="tagName"><option th:each="post : ${tagList}" th:value="${post.tagName}" th:text="|${post.tagName}|">
+                 </option></select>
+                 <button type="submit">submit</button>
+                           </form>
+                         </article>
+     </div>
+   </section>
+     <!--Close center-column-->
+     </div>
+        <!--Close three-column-grid-->
+      <section>
+       <div class="footer-box">
+          <h2 class="bold section-title">Our Sponsors</h2>
+       </div>
+     </section>
+ </main>
 </body>
 </html>
