@@ -11,7 +11,7 @@
   <header>
     <div id="top-header">
       <h1 class="header-text">Blog Page Title</h1>
-      <h2>Time Posted: <span th:text="${post.time}">Default Time</span></h2>
+     <!--  <h2>Time Posted: <span th:text="${post.time}">Default Time</span></h2> -->
     </div>
   <div id="navbar">
   <a class="header-text" id="nav-link" href="/">Home</a>
@@ -35,12 +35,13 @@
     <section id="center-column">
         <h1 class ="article-header">Post</h1>
       <div class="column-reverse">    
-    <article class="white-box" th:each="post : ${singlePost}">
-                                          <h2 class="article-header" th:text="${post.title}">Title of Posts</h2>
+    <article class="white-box">
+                                          <div th:each="Title : ${post.title}">
+                                          <h2 class="article-header" th:text="${Title.title}">Title of Posts</h2></div>
                 <div class="two-column grid">
-                  <div class="grid--left">
-                               <h3 th:text="|Written by: ${post.author.authorName}|">Written by: Bob</h3>
-                                 <h4 th:text="|Genre: ${post.genre.genreType}|">Genre: Horror</h4>
+                  <div class="grid--left"><div th:each="Author: ${post.authors}">
+                               <h3 th:text="|Written by: ${Author.authorName}|">Written by: Bob</h3></div>
+                                 <div th:each="Genre: ${post.genre}"><h4 th:text="|Genre: ${Genre.genreType}|">Genre: Horror</h4></div>
                                           <p th:text="${post.body}">Lorem ipsum dolor sit amet, et vis liber putent reprehendunt, suas numquam consetetur eos at. Ei vim scripta moderatius, ut duo partiendo vituperata. Homero repudiare referrentur ut sed, ius cu nostrum inciderint. Et liber officiis omittantur eos. Eu usu gubergren conceptam honestatis, per tale accusata accommodare ad, accusata adversarium ne sit.</p>
               </article>
       </div>
