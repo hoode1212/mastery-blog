@@ -53,6 +53,8 @@ public class PostController {
 	@GetMapping("/submitPost")
 	public String postForm(Model model) {
 		model.addAttribute("postList", postRepo.findAll());
+		model.addAttribute("genreType", genreRepo.findAll());
+		model.addAttribute("tagName", tagRepo.findAll());
 		return "submitPost";
 
 	}
@@ -65,7 +67,6 @@ public class PostController {
 		Author author = authorRepo.findByAuthorName(authorName);
 		
 		Tag tags = tagRepo.findByTagName(tagName);
-
 
 		postRepo.save(new Post(body, date, title, author, genre, tags));
 
