@@ -46,5 +46,4 @@ public class GenreController {
 		model.addAttribute("posts", postRepo.findAll());
 		return "singleGenre";
 	}
-
 }

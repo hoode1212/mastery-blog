@@ -1,8 +1,6 @@
 package com.wcciproject.masteryblog.models;
 
 import java.util.Collection;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

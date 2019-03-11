@@ -6,7 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.wcciproject.masteryblog.models.Author;
+import com.wcciproject.masteryblog.models.Tag;
 import com.wcciproject.masteryblog.repositories.AuthorRepository;
 import com.wcciproject.masteryblog.repositories.GenreRepository;
 import com.wcciproject.masteryblog.repositories.PostRepository;
@@ -24,11 +28,29 @@ public class TagController {
 	@Resource
 	TagRepository tagRepo;
 	
-	@GetMapping ("/tag/{id}")
-	public String singleTag(@PathVariable Long id, Model model) {
-		model.addAttribute("genre",genreRepo.findAll());
-		model.addAttribute("tagRepo", tagRepo.findById(id).get());
-		return "tag";
+	
+	@RequestMapping("")
+	public String tag(Model model) {
+		model.addAttribute("tagList", tagRepo.findAll());
+		return "/tag";
 	}
 	
+	
+	@PostMapping("/submit")
+	public String tagSubmit(String tagName) {
+		tagRepo.save(new Tag(tagName));
+		return "redirect:/tag";
+		
+	}
+
+	@GetMapping("/{id}")
+	public String singleTag(@PathVariable Long id, Model model) {
+		model.addAttribute("tag", tagRepo.findById(id).get());
+		model.addAttribute("posts", postRepo.findAll());
+		return "singleTag";
+	}
+
+
 }
+
+
